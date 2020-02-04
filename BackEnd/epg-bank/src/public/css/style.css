@@ -1,0 +1,73 @@
+/*Import others styles files
+
+@import url('bootstrap.min.css');
+
+*/
+
+@import url('materialize.min.css');
+@import url('fontawesome4/css/font-awesome.min.css');
+
+* {box-sizing: border-box; outline: none}
+
+html, body { margin: 0; padding: 0; height: 100%; }
+
+body {
+    
+}
+
+
+.bgImg {
+    background-image: url("../assets/img/bg2.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+
+    color: whitesmoke;
+    font-family: cursive;
+    font-size: 15px;
+}
+
+
+.dark-transparent {
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+}
+
+#logo { font-size: 35px; }
+
+#mynavbar { 
+    transition: top 0.8s;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+
+nav { font-size: 1.2em; font-weight: 900}
+
+main  { 
+    transform: translateY(50%); 
+    width: 100%;     
+    text-align: center; 
+}
+
+.comming-soon {
+    vertical-align: center;
+}
+
+footer  {
+    width: 100%; 
+    text-align: center; 
+    position: fixed; 
+    bottom: 0; 
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { }

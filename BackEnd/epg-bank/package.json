@@ -1,0 +1,32 @@
+{
+  "name": "epg-bank",
+  "version": "1.0.0",
+  "description": "API of the epg-bank",
+  "main": "config/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./config/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdsonPaulo/EPG-Bank-api.git"
+  },
+  "keywords": [
+    "epg-bank"
+  ],
+  "author": "EdsonPaulo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdsonPaulo/EPG-Bank-api/issues"
+  },
+  "homepage": "https://github.com/EdsonPaulo/EPG-Bank-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "http": "0.0.0",
+    "mongoose": "^5.7.1",
+    "socket.io": "^2.3.0"
+  }
+}
