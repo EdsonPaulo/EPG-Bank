@@ -1,0 +1,113 @@
+
+<h5> <i class="fa fa-group">  GERIR CLIENTES </i> </h5>
+<hr>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <form method="POST" action="http://localhost:3000/clients">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Novo Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Nome</label>
+              <input type="text" class="form-control form-control-sm" name="name" placeholder="Nome Completo" [(ngModel)]="client.name" required #name>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="bi">Bilhete de Identidade</label>
+              <input type="text" class="form-control form-control-sm" name="bi" placeholder="Número do BI" [(ngModel)]="client.bi" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="phone">Telefone</label>
+              <input type="text" class="form-control form-control-sm" name="phone" placeholder="Ex.: 992 421 254" [(ngModel)]="client.a1" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">Email</label>
+              <input type="email" class="form-control form-control-sm" name="email" placeholder="usuario@email.com"  [(ngModel)]="client.email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="birthday">Data de Nascimento</label>
+              <input type="date" class="form-control form-control-sm" name="birthday" [(ngModel)]="client.birthday" required>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="nacionality">Nacionalidade</label>
+              <select name="nacionality" class="form-control form-control-sm" [(ngModel)]="client.nacionality">
+                <option selected>Angolana</option>
+                <option>Portuguesa</option>
+                <option>Brasileira</option>
+                <option>Moçambicana</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" (click)="createClient()">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="input-group">
+    <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-search mr-1"></i></div></div>
+    <input type="text" id="searchBar" (keyup)="onKeyUp()" class="form-control" placeholder="Pesquisar Cliente...">
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="d-flex justify-content-between ">
+    <h6>Lista de Clientes Cadastrados</h6>
+    <button type="button" class="btn btn-sm" style="background: var(--primary-dark); color: white;" id="newClient"
+            onclick="$('#myModal').modal('show')">
+        <i class="fa fa-plus mr-1"></i> Adicionar Novo Cliente
+    </button>
+  </div>
+  <hr>
+  <div class="table-responsive p-3">
+    <table class="table table-sm table-hover w-100 shadow" id="clientsTable">
+      <thead style="background: #3f51b5; color: white">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"><i class="fa fa-user mr-1"></i> Nome</th>
+          <th scope="col"><i class="fa fa-id-card mr-1"></i> BI</th>
+          <th scope="col"><i class="fa fa-phone mr-1"></i> Telefone</th>
+          <th scope="col">@  Email</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="clients == null || clients.length == 0" class="text-center font-weight-bold">
+          <td colspan="5">  Sem clientes cadastrados! </td>
+        </tr>
+
+        <tr *ngFor="let client of clients">
+            <th scope="row">{{ client._id }}</th>
+            <td> {{ client.name }} </td>
+            <td> {{ client.bi }} </td>
+            <td> {{ client.phone }} </td>
+            <td> {{ client.email }}</td>
+
+            <td>
+              <button type="button" class="btn btn-sm btn-info mr-2" (click)="onclick( client._id )" data-toggle="tooltip" title="Ver Mais"> <i class="fas fa-eye"></i> Ver</button>
+              <button type="button" class="btn btn-sm btn-warning mr-2" onclick="" data-toggle="tooltip" title="Modificar"> <i class="fas fa-edit"></i> Modificar</button>
+              <button type="button" class="btn btn-sm btn-danger" onclick="" data-toggle="tooltip" title="Eliminar"> <i class="fas fa-trash-o"></i> Excluir</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
